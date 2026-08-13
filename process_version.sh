@@ -64,6 +64,15 @@ package(){
         cp /dist_static/include/google/protobuf/compiler/*.proto include/google/protobuf/compiler/
         zip -r protoc-${version}-linux-loongarch64.zip  bin/ include/
         rm -rf bin include
+
+	# 静态开发产物，用于构建 protoc-gen-grpc-java 等原生插件
+        dev_items="include lib"
+        [ -d /dist_static/lib64 ] && dev_items="$dev_items lib64"
+        for d in $dev_items; do
+            cp -a "/dist_static/$d" .
+        done
+        zip -r "protobuf-${version}-loongarch64-dev.zip" $dev_items
+        rm -rf $dev_items
     popd
 
 }
