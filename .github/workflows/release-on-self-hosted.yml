@@ -2,7 +2,7 @@ name: Auto Build Release (Self-hosted)
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '34 20 * * *'
   workflow_dispatch:
 
 env:
