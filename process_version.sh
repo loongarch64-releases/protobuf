@@ -33,7 +33,7 @@ apply_patches()
 fetch_source_code()
 {
     rm -rf "${source_root}"
-    git clone --branch "v${version}" --depth=1 "https://github.com/${org}/${proj}" "${source_root}"
+    git clone --branch "v${version}" --depth=1 "https://github.com/${org}/${proj}" "${source_root}" --recursive
 }
 
 build(){
